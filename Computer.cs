@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Computer
+   public class Computer:Player
     {
+        //member variable(has a)
+
+
+        //constructor(spawner)
+        public Computer()
+        {
+
+
+
+        }
+
+
+        //member method(can do)
+
+
+
+
     }
 }

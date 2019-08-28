@@ -6,7 +6,27 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+   public abstract class Player
     {
+        //member variables (has a)
+        int NumberOfWins;
+        string action;
+
+
+        // constructor(spawner)
+        public Player()
+        {
+            NumberOfWins = 0;
+
+
+        }
+
+
+
+
+      //member methods (cad do)
+
+
+
     }
 }
