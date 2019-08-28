@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public class Human:Player
+    public class Human
     {
         //member varialble (has a)
-        string Name;
+       public string Name;
 
 
         //constructor (spawner)
@@ -20,12 +20,19 @@ namespace RPSLS
 
 
         //member method(can do)
-        public void GetPlayersName()
+        public string GetPlayersName()
         {
-
+            Console.WriteLine("What is your name?");
+            Name = Console.ReadLine();
+            return Name;
         }
+        public void WelcomeThePlayer()
+        {
+            Console.WriteLine("Welcome to the game " +Name);
+        }
+        
+          
 
-
-
+     
     }
 }
