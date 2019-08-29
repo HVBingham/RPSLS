@@ -21,14 +21,19 @@ namespace RPSLS
 
 
         //member method(can do)
-        public override string ChooseAction(List<string>Actions)
+        public string ChooseAction(List<string>Actions)
         {
-            Random randomAction = new Random()
+            Random RandomAction = new Random();
+            int i = RandomAction.Next(Actions.Count);
+            string Action = Actions[i];
+            return Action;
+            
+
         }
 
-        public override void GetPlayersName()
+        public override string GetPlayersName()
         {
-           Name=""
+          return Name = "";
         }
 
     }

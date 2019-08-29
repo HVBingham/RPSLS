@@ -77,7 +77,7 @@ namespace RPSLS
             {
                 return Action;
             }
-            Console.WriteLine("Stop inputing bananas!");
+            Console.WriteLine("Stop inputing bananas!.................................... Stop it.");
             return GetPlayersActions(Actions);
         }
         public void CompareActions(string Player1Actions, string Player2Actions, List<string>Actions)
