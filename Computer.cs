@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-   public class Computer:Player
+   public class Computer: Player
     {
         //member variable(has a)
 
@@ -21,7 +21,10 @@ namespace RPSLS
 
 
         //member method(can do)
+        public int GenerateRandom()
+        {
 
+        }
 
 
 

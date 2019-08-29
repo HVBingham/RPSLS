@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public class Human
+    public class Human : Player
     {
         //member varialble (has a)
        public string Name;
