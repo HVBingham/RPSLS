@@ -9,14 +9,14 @@ namespace RPSLS
    public abstract class Player
     {
         //member variables (has a)
-        int NumberOfWins;
-        string action;
-
+       public int Score;
+       public string Action;
+       public string Name;
 
         // constructor(spawner)
         public Player()
         {
-            NumberOfWins = 0;
+           Score = 0;
 
 
         }
@@ -24,7 +24,8 @@ namespace RPSLS
 
 
 
-      //member methods (cad do)
+        //member methods (cad do)
+        public abstract string GetPlayersName();
 
 
 

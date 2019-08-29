@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    public class Human : Player
+    public class Human:Player
     {
         //member varialble (has a)
-       public string Name;
+       
 
 
         //constructor (spawner)
-        public Human(string name)
+        public Human()
         {
-            this.Name = name;
+            
         }
 
 
         //member method(can do)
-        public string GetPlayersName()
+        public override string GetPlayersName()
         {
             Console.WriteLine("What is your name?");
             Name = Console.ReadLine();
@@ -28,11 +28,10 @@ namespace RPSLS
         }
         public void WelcomeThePlayer()
         {
-            Console.WriteLine("Welcome to the game " +Name);
+            Console.WriteLine("Welcome to the game " + Name);
         }
         
-          
+       
 
-     
     }
 }
