@@ -21,19 +21,17 @@ namespace RPSLS
 
 
         //member method(can do)
-        public string ChooseAction(List<string>Actions)
-        {
-            Random RandomAction = new Random();
-            int i = RandomAction.Next(Actions.Count);
-            string Action = Actions[i];
-            return Action;
-            
-
-        }
-
+     
         public override string GetPlayersName()
         {
-          return Name = "";
+            Name = "darkside Player";
+            return Name;
+        }
+        
+            
+         public override void WelcomePlayer()
+        {
+            Console.WriteLine("Welcome Dark Side Player");
         }
 
     }

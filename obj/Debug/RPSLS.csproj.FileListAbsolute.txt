@@ -1,2 +1,7 @@
 C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\obj\Debug\RPSLS.csprojAssemblyReference.cache
 C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\obj\Debug\RPSLS.csproj.CoreCompileInputs.cache
+C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\bin\Debug\RPSLS.exe.config
+C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\bin\Debug\RPSLS.exe
+C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\bin\Debug\RPSLS.pdb
+C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\obj\Debug\RPSLS.exe
+C:\Users\hbingham\Desktop\Devcode Camp\Week 3\RPSLS\RPSLS\obj\Debug\RPSLS.pdb

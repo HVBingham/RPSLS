@@ -12,7 +12,8 @@ namespace RPSLS
         Player PlayerOne;
         Player PlayerTwo;
         bool IsGameOver;
-        public List<string> Actions; 
+        public List<string> Actions;
+        int NumberOfPlayers;
 
 
         //constructor(spawner)
@@ -24,6 +25,7 @@ namespace RPSLS
             Actions.Add("scissors");
             Actions.Add("lizard");
             Actions.Add("spock");
+
             IsGameOver = false;
 
 
@@ -49,7 +51,7 @@ namespace RPSLS
             if(number == 1)
             {
                 PlayerOne = new Human();
-                PlayerTwo = new Computer();
+               PlayerTwo = new Computer();
 
             }
             else if(number == 2)
@@ -57,134 +59,193 @@ namespace RPSLS
                 PlayerOne = new Human();
                 PlayerTwo = new Human();
             }
+
         }
+
         public bool ProveActions(string ChosenActions, List<string> Actions)
-        {
-            foreach(string action in Actions)
-            {
-                if(ChosenActions == action)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+         {
+               foreach(string action in Actions)
+               {
+                  if(ChosenActions == action)
+                  {
+                      return true;
+                 }
+               }
+               return false;
+         }
         public string GetPlayersActions(List<string> Actions)
-        { 
+        {
+          
             Console.WriteLine("Please choose either: 'rock', 'paper', 'scissors', 'lizard', or 'spock'");
-           string Action = Console.ReadLine().ToLower();
-            if(ProveActions(Action, Actions))
+            string Action = Console.ReadLine().ToLower();
+            if (ProveActions(Action, Actions))
             {
                 return Action;
             }
-            Console.WriteLine("Stop inputing bananas!.................................... Stop it.");
-            return GetPlayersActions(Actions);
+                Console.WriteLine("Stop inputing bananas!.................................... Stop it.");
+                return GetPlayersActions(Actions);
+            
         }
-        public void CompareActions(string Player1Actions, string Player2Actions, List<string>Actions)
+        public string ChooseAction(List<string> Actions)
         {
-            Player1Actions = GetPlayersActions(Actions);
-            Player2Actions = GetPlayersActions(Actions);
+            Random RandomAction = new Random();
+            int i = RandomAction.Next(Actions.Count);
+            string Action = Actions[i];
+            return Action;
 
+
+        }
+        public string GetPlayerTwoActions(List<string> Actions)
+        {
+            string PlayerTwoActions;
+            if (NumberOfPlayers == 1)
+            {
+                PlayerTwoActions = ChooseAction(Actions);
+                               
+            }
+            else
+            {
+                PlayerTwoActions = GetPlayersActions(Actions);
+               
+            }
+            return PlayerTwoActions;
+
+        }
+        public string CompareActions(List<string>Actions)
+        {
+            string FinalActions = "";
+            string Player1Actions = GetPlayersActions(Actions);
+            string Player2Actions = GetPlayerTwoActions(Actions);
             if (Player1Actions == Player2Actions)
             {
-                Console.WriteLine("It's A Tie \n\t Rechoose actions.");
-                GetPlayersActions(Actions);
+                FinalActions= "Tie";
             }
             else {
                 switch (Player1Actions + Player2Actions)
                 {
                     case ("rock" + "scissors"):
-                        Console.WriteLine("Player 1 Wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("scissors" + "rock"):
-                        Console.WriteLine("Player 2 Wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("scissors" + "paper"):
-                        Console.WriteLine("Player 1 Wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("paper" + "scissors"):
-                        Console.WriteLine("Player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("paper" + "rock"):
-                        Console.WriteLine("player 1 wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("rock" + "paper"):
-                        Console.WriteLine("player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("rock" + "lizard"):
-                        Console.WriteLine("player 1 wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("lizard" + "rock"):
-                        Console.WriteLine("player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("lizard" + "spock"):
-                        Console.WriteLine("Player 1 Wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("spock" + "lizard"):
-                        Console.WriteLine("Player 2 Wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("spock" + "scissors"):
-                        Console.WriteLine("Player 1 Wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("scissors" + "spock"):
-                        Console.WriteLine("Player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("scissors" + "lizard"):
-                        Console.WriteLine("player 1 wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("lizard" + "scissors"):
-                        Console.WriteLine("player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("lizard" + "paper"):
-                        Console.WriteLine("player 1 wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("paper" + "lizard"):
-                        Console.WriteLine("player 2 wins");
-                         PlayerTwo.AddToPlayerScore();
+                        FinalActions = "Player 2 Wins";
+                        PlayerTwo.AddToPlayerScore();
                         break;
                     case ("paper" + "spock"):
-                        Console.WriteLine("player 1 wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("spock" + "paper"):
-                        Console.WriteLine("player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
                     case ("spock" + "rock"):
-                        Console.WriteLine("player 1 wins");
+                        FinalActions = "Player 1 Wins";
                         PlayerOne.AddToPlayerScore();
                         break;
                     case ("rock" + "spock"):
-                        Console.WriteLine("player 2 wins");
+                        FinalActions = "Player 2 Wins";
                         PlayerTwo.AddToPlayerScore();
                         break;
 
            
                 }
 
+
+            }
+            return FinalActions;
+        }
+        public bool EndGame()
+        {
+            if(PlayerOne.Score > 1 || PlayerTwo.Score > 1)
+            {
+                IsGameOver = true;
+            }
+            return IsGameOver;
+        }
+        public void CongratsWinner(List<string> Actions)
+        {
+            string Winner;
+            Winner = CompareActions(Actions);
+            switch (Winner)
+            {
+                case "Player 1  Wins":
+                    Console.WriteLine("congrats Player One you Win");
+                    break;
+                case "Player 2 Wins":
+                    Console.WriteLine("congrats Player Two you Win");
+                    break;
+                case "Tie":
+                    Console.WriteLine("Dang you both are good. Its a Tie.");
+                    break;
             }
         }
+      
         public void PlayGame()
         {
             DisplayTheRules();
-            int numberofPlayers = GetNumberOfPlayers();
-            CreatePlayers(numberofPlayers);
- 
+            NumberOfPlayers = GetNumberOfPlayers();
+            CreatePlayers(NumberOfPlayers);
+            CongratsWinner(Actions);
+            EndGame();
+            Console.ReadLine();
+
         }
     }
 }

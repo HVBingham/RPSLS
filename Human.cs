@@ -13,10 +13,7 @@ namespace RPSLS
 
 
         //constructor (spawner)
-        public Human()
-        {
-            
-        }
+       
 
 
         //member method(can do)
@@ -26,12 +23,12 @@ namespace RPSLS
             Name = Console.ReadLine();
             return Name;
         }
-        public void WelcomeThePlayer()
+
+        public override void WelcomePlayer()
         {
-            Console.WriteLine("Welcome to the game " + Name);
+            Console.WriteLine("Welcome" +Name);
         }
-        
-       
+
 
     }
 }

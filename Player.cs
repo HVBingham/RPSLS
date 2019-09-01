@@ -26,9 +26,10 @@ namespace RPSLS
 
         //member methods (cad do)
         public abstract string GetPlayersName();
+        public abstract void WelcomePlayer();
         public int AddToPlayerScore()
         {
-           return Score++;
+           return Score += Score ;
         }
         public void DisplayPlayerScore()
         {
