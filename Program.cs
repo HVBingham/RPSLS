@@ -13,7 +13,10 @@ namespace RPSLS
             Game NewGame = new Game();
 
             NewGame.PlayGame();
-
+            NewGame.PlayGameAgain();
+            
+           
+            
 
 
 

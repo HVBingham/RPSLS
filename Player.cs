@@ -29,7 +29,7 @@ namespace RPSLS
         public abstract void WelcomePlayer();
         public int AddToPlayerScore()
         {
-           return Score += Score ;
+           return Score++ ;
         }
         public void DisplayPlayerScore()
         {

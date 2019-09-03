@@ -42,9 +42,11 @@ namespace RPSLS
         
         public int GetNumberOfPlayers()
         {
+            
             Console.WriteLine("How Many Players?");
             int numberOfPlayers = int.Parse(Console.ReadLine());
             return numberOfPlayers;
+            
         }
         public void CreatePlayers(int number)
         {
@@ -95,22 +97,33 @@ namespace RPSLS
 
 
         }
+        public string GetHumanPlayerTwoActions(List<string> Actions)
+        {
+            Console.WriteLine("Player Two: Please choose either: 'rock', 'paper', 'scissors', 'lizard', or 'spock'");
+            string Action = Console.ReadLine().ToLower();
+            if (ProveActions(Action, Actions))
+            {
+                return Action;
+            }
+            Console.WriteLine("Stop inputing bananas!.................................... Stop it.");
+            return GetHumanPlayerTwoActions(Actions);
+        }
         public string GetPlayerTwoActions(List<string> Actions)
         {
             string PlayerTwoActions;
             if (NumberOfPlayers == 1)
             {
                 PlayerTwoActions = ChooseAction(Actions);
-                               
+
             }
             else
             {
-                PlayerTwoActions = GetPlayersActions(Actions);
-               
+                PlayerTwoActions = GetHumanPlayerTwoActions(Actions);
+
             }
             return PlayerTwoActions;
-
         }
+     
         public string CompareActions(List<string>Actions)
         {
             string FinalActions = "";
@@ -211,31 +224,60 @@ namespace RPSLS
             }
             return FinalActions;
         }
-        public bool EndGame()
-        {
-            if(PlayerOne.Score > 1 || PlayerTwo.Score > 1)
-            {
-                IsGameOver = true;
-            }
-            return IsGameOver;
-        }
+      
+
         public void CongratsWinner(List<string> Actions)
         {
             string Winner;
             Winner = CompareActions(Actions);
-            switch (Winner)
+            if (NumberOfPlayers == 2)
             {
-                case "Player 1  Wins":
-                    Console.WriteLine("congrats Player One you Win");
-                    break;
-                case "Player 2 Wins":
-                    Console.WriteLine("congrats Player Two you Win");
-                    break;
-                case "Tie":
-                    Console.WriteLine("Dang you both are good. Its a Tie.");
-                    break;
+                switch (Winner)
+                {
+                    case "Player 1  Wins":
+                        Console.WriteLine("congrats Player One you Win with a score of " + PlayerOne.Score + "Please press enter.");
+                        break;
+                    case "Player 2 Wins":
+                        Console.WriteLine("congrats Player Two you Win with a score of " + PlayerTwo.Score + "Please press enter.");
+                        break;
+                    case "Tie":
+                        Console.WriteLine("Dang you both are good. Its a Tie. Please press enter.");
+                        break;
+                }
+            }
+            else if (NumberOfPlayers == 1){
+                switch (Winner)
+                {
+                    case "Player 1  Wins":
+                        Console.WriteLine("congrats Player One you Win with a score of  " + PlayerOne.Score + " Please press enter.");
+                        break;
+                    case "Player 2 Wins":
+                        Console.WriteLine("Dude the computer beat you. It wins with a score of  " +PlayerTwo.Score + " Please press enter.");
+                        break;
+                    case "Tie":
+                        Console.WriteLine("Dang you both are good. Its a Tie. Please press enter.");
+                        break;
+                }
             }
         }
+      
+      public bool PlayGameAgain()
+        {
+           
+            if (PlayerOne.Score <= 3 || PlayerTwo.Score <= 3)
+            {
+                
+                CongratsWinner(Actions);
+                Console.ReadLine();
+            }
+            else if (PlayerOne.Score == 3 || PlayerTwo.Score == 3)
+            {
+                return IsGameOver = true;
+            }
+ 
+            return PlayGameAgain();
+        }
+       
       
         public void PlayGame()
         {
@@ -243,7 +285,6 @@ namespace RPSLS
             NumberOfPlayers = GetNumberOfPlayers();
             CreatePlayers(NumberOfPlayers);
             CongratsWinner(Actions);
-            EndGame();
             Console.ReadLine();
 
         }
